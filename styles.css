@@ -1,0 +1,147 @@
+:root {
+  --bg: #000000;
+  --text: #f4f2ef;
+  --muted: #e8e4de;
+  --accent: #b88a2a;
+  --tile: #101010;
+  --shadow: rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(circle at center 22%, rgba(255, 199, 88, 0.08), transparent 24%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Instrument Sans", sans-serif;
+}
+
+.profile-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 20px 56px;
+}
+
+.profile-card {
+  width: min(100%, 560px);
+  display: grid;
+  justify-items: center;
+  gap: clamp(92px, 14vh, 140px);
+}
+
+.avatar-frame {
+  width: clamp(246px, 44vw, 286px);
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 28px 60px -36px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.avatar-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.copy {
+  text-align: center;
+  text-wrap: balance;
+}
+
+.copy h1,
+.copy p {
+  margin: 0;
+}
+
+.copy a {
+  color: inherit;
+  text-decoration: none;
+  transition:
+    opacity 140ms ease,
+    text-shadow 140ms ease;
+}
+
+.copy a:hover,
+.copy a:focus-visible {
+  opacity: 0.86;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.12);
+}
+
+.copy a:focus-visible {
+  outline: none;
+}
+
+.copy h1 {
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.copy p {
+  margin-top: 6px;
+  font-size: clamp(24px, 3.65vw, 40px);
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  color: var(--muted);
+}
+
+.copy span {
+  color: var(--accent);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.social-links a {
+  font-size: 15px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(244, 242, 239, 0.7);
+  text-decoration: none;
+  transition:
+    color 140ms ease,
+    opacity 140ms ease;
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+  color: var(--text);
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .profile-page {
+    padding-top: 56px;
+    padding-bottom: 72px;
+  }
+
+  .profile-card {
+    gap: clamp(82px, 16vh, 126px);
+  }
+
+  .copy p {
+    max-width: 11ch;
+    margin-inline: auto;
+  }
+}
